@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Product } from "../home/model";
 import { Container } from "@mui/material";
+import ProductService from "../home/service";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams();

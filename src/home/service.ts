@@ -22,3 +22,4 @@ class ProductService {
     return await res.json()
   }
 }
+export default ProductService

@@ -5,6 +5,7 @@ import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 
 import ProductDetails from "../../product-details/index";
 import { Card } from "@mui/material";
+import ProductService from "../service";
 
 const ProductList: React.FC = () => {
   const [productList, setProductList] = useState<Product[]>([]);
