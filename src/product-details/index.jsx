@@ -1,14 +1,13 @@
 import Grid from "@mui/material/Grid";
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Product } from "../home/model";
 import { Container } from "@mui/material";
 import ProductService from "../home/service";
 
-const ProductDetails: React.FC = () => {
+const ProductDetails = () => {
   const { id } = useParams();
 
-  const [productDetails, setProductDetails] = useState<Product>();
+  const [productDetails, setProductDetails] = useState();
   const getProductDetails = useCallback(async () => {
     const service = new ProductService();
     if (id) {
@@ -27,7 +26,7 @@ const ProductDetails: React.FC = () => {
         <Grid item xs={6} sm={4} md={3}>
           <Grid
             container
-            padding={1}
+            padding={3}
             alignItems="center"
             direction="column"
             justifyContent="center"

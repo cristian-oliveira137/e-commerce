@@ -2,7 +2,7 @@ import Grid from "@mui/material/Grid";
 import React from "react";
 import { Paper } from "@mui/material";
 
-const Information: React.FC = () => {
+const Information = () => {
   const info = {
     nome: "Alice",
     curso: "Sistemas da Informação",
@@ -13,7 +13,6 @@ const Information: React.FC = () => {
     <Paper>
       <Grid
         container
-        padding={1}
         alignItems="flex-start"
         direction="column"
         justifyContent="flex-start"

@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import React from "react";
 import ProductService from "../service";
 
-const Search: React.FC = () => {
+const Search = () => {
   const service = new ProductService();
 
   const searchProducts = () => {};

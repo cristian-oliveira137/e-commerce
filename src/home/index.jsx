@@ -4,7 +4,7 @@ import Information from "./info";
 import Search from "./search/view";
 import ProductList from "./product-list/product-list";
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
     <Grid
       container
