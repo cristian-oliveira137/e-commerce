@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid";
 import React from "react";
-import Information from "./info";
+import Header from "./header";
 import Search from "./search/view";
 import ProductList from "./product-list/product-list";
 
@@ -9,12 +9,13 @@ const Home = () => {
     <Grid
       container
       padding={4}
+      columnSpacing={3}
       alignItems="flex-start"
       direction="column"
       justifyContent="center"
     >
-      <Grid item>
-        <Information />
+      <Grid item xs={12}>
+        <Header />
       </Grid>
       <Grid item>
         <Search />

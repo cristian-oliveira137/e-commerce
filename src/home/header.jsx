@@ -1,16 +1,24 @@
 import Grid from "@mui/material/Grid";
 import React from "react";
 import { Paper } from "@mui/material";
+import { styled } from "@mui/system";
 
-const Information = () => {
+const Header = () => {
   const info = {
     nome: "Alice",
     curso: "Sistemas da Informação",
     matricula: "12345",
   };
 
+  const HeaderPaper = styled(Paper)`
+    background-color: gray;
+    color: #fff;
+    padding: 16px;
+    text-align: center;
+  `;
+
   return (
-    <Paper>
+    <HeaderPaper>
       <Grid
         container
         alignItems="flex-start"
@@ -27,7 +35,7 @@ const Information = () => {
           <span>Matricula: {info.matricula}</span>
         </Grid>
       </Grid>
-    </Paper>
+    </HeaderPaper>
   );
 };
-export default Information;
+export default Header;

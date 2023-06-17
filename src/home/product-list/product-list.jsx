@@ -39,7 +39,7 @@ const ProductList = () => {
           wrap="wrap"
         >
           {productList?.map((productItem, index) => (
-            <Grid key={index} item xs={6} sm={4} md={3}>
+            <Grid key={index} item xs={6} sm={4} md={3} lg={2}>
               <CardProduct>
                 <Grid
                   container
