@@ -1,14 +1,22 @@
 import React from "react";
 import "./App.css";
 import Home from "./home/index";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Search from "./home/search/view";
+import ProductDetails from "./product-details";
 
 function App() {
   return (
-    <div className="header">
-      <span className="texto">eu te amo anna</span>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/detalhes/:id" element={<ProductDetails />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
-  // return <Home />;
 }
 
 export default App;

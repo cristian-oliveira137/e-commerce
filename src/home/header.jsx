@@ -1,7 +1,6 @@
 import Grid from "@mui/material/Grid";
 import React from "react";
-import { Paper } from "@mui/material";
-import { styled } from "@mui/system";
+import { HeaderPaper } from "../styles";
 
 const Header = () => {
   const info = {
@@ -9,13 +8,6 @@ const Header = () => {
     curso: "Sistemas da Informação",
     matricula: "12345",
   };
-
-  const HeaderPaper = styled(Paper)`
-    background-color: gray;
-    color: #fff;
-    padding: 16px;
-    text-align: center;
-  `;
 
   return (
     <HeaderPaper>

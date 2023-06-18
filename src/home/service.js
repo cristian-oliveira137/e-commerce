@@ -1,24 +1,20 @@
 class ProductService {
   async getAllProducts() {
-    const a = await fetch("https://fakestoreapi.com/products").then((res) =>
+    return await fetch("https://fakestoreapi.com/products").then((res) =>
       res.json()
     );
-    console.log(a);
-    return a;
   }
 
   async getProductDetails(id) {
-    const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-    console.log("getProductDetails", res);
-    return await res.json();
+    return await fetch(`https://fakestoreapi.com/products/${id}`).then((res) =>
+      res.json()
+    );
   }
 
   async getPaginatedProductList(searchValue) {
-    const res = await fetch(
+    return await fetch(
       `https://fakestoreapi.com/products/search?query=${searchValue}`
-    );
-    console.log("getPaginatedProductList", res);
-    return await res.json();
+    ).then((res) => res.json());
   }
 }
 export default ProductService;

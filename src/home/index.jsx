@@ -8,7 +8,6 @@ const Home = () => {
   return (
     <Grid
       container
-      padding={4}
       columnSpacing={3}
       alignItems="flex-start"
       direction="column"
@@ -17,7 +16,7 @@ const Home = () => {
       <Grid item xs={12}>
         <Header />
       </Grid>
-      <Grid item>
+      <Grid item xs={12}>
         <Search />
       </Grid>
       <Grid item>
