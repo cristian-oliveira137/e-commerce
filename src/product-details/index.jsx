@@ -1,11 +1,11 @@
 import Grid from "@mui/material/Grid";
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import ProductService from "../home/service";
-import MuiAlert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
-import { CardProduct, ProductName, ProductNameButton } from "../styles";
+import Alert from '@mui/material/Alert';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -33,50 +33,86 @@ const ProductDetails = () => {
   }, [getProductDetails]);
 
   return (
-    <Container>
-      {error ? (
-        <MuiAlert elevation={6} variant="filled" />
-      ) : loading ? (
-        <CircularProgress color="inherit" />
-      ) : (
-        productDetails && (
-          <Grid item xs={6} sm={4} md={3} lg={2}>
-            <CardProduct>
-              <Grid
-                container
-                alignItems="center"
-                direction="column"
-                justifyContent="center"
-                wrap="wrap"
-              >
-                <Grid item xs={6}>
-                  <div>
-                    <img
-                      src={productDetails.image}
-                      alt={productDetails.title}
-                      width={50}
-                      heigth={50}
-                    />
-                  </div>
-                </Grid>
+    <Container className="details">
+      <Grid container direction='column' alignItems='center' >
+        <Grid item>
+          <div className="seta-voltar">
+            <Link to={`/home`}>
+              <Button variant="text">
+                <ArrowBackIcon alt="seta voltar"
+                  width={24}
+                  heigth={24}
+                  color="blue" />
+              </Button>
+            </Link>
+          </div>
+        </Grid>
+        {error ? (
+          <Alert severity="error" >Erro ao buscar detalhes de produto</Alert>
+        ) : loading ? (
+          <div className="circular-container">
+            <CircularProgress color="inherit" />
+          </div>
+        ) : (
+          productDetails && (
+            <Grid item>
+              <div className="details-container">
+                <Grid
+                  container
+                  alignItems="center"
+                  direction="column"
+                  justifyContent="center"
+                  spacing={2}
+                >
+                  <Grid item>
+                    <div className="details-image">
+                      <img
+                        src={productDetails.image}
+                        alt={productDetails.title}
+                        width={100}
+                        heigth={100}
+                      />
+                    </div>
+                  </Grid>
 
-                <Grid item xs={4}>
-                  <Link to={`/detalhes/${productDetails.id}`}>
-                    <ProductNameButton variant="text">
-                      <ProductName> {productDetails.title}</ProductName>
-                    </ProductNameButton>
-                  </Link>
-                </Grid>
+                  <Grid item>
+                    <span className="details-title">{productDetails.title}</span>
+                  </Grid>
 
-                <Grid item xs={2}>
-                  <span>${productDetails.price}</span>
+                  <Grid item>
+                    <span className="details-price">R${productDetails.price}</span>
+                  </Grid>
+                  <Grid item >
+                    <span className="details-description"> {productDetails.description}</span>
+                  </Grid>
+
+                  <Grid item>
+                    <Grid container direction="column">
+                      <div className="rating-container">
+                        <Grid item>
+                          <span className="rating">Avaliações</span>
+                        </Grid>
+                        <Grid item>
+                          <Grid container justifyContent="space-around" direction='row'>
+                            <Grid item xs>
+                              <span className="rate-count">{productDetails.rating.rate}/5</span>
+                            </Grid>
+                            <Grid item xs className='count'>
+                              <span className="rate-count count">{productDetails.rating.count}</span>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </div>
+                    </Grid>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </CardProduct>
-          </Grid>
-        )
-      )}
-    </Container>
+              </div>
+            </Grid>
+          )
+        )}
+      </Grid>
+
+    </Container >
   );
 };
 export default ProductDetails;

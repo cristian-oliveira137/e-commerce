@@ -27,3 +27,12 @@ export const HeaderPaper = styled(Paper)`
 export const ProductNameButton = styled(Button)``;
 
 export const ProductName = styled.span``;
+
+export const ProductDetailsName = styled.span`  
+font-size: 16px;
+margin-bottom: 20px;
+`;
+export const ProductDetailsPrice = styled.span`
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 10px;`;

@@ -11,7 +11,7 @@ class ProductService {
     );
   }
 
-  async getPaginatedProductList(searchValue) {
+  async searchProduct(searchValue) {
     return await fetch(
       `https://fakestoreapi.com/products/search?query=${searchValue}`
     ).then((res) => res.json());
