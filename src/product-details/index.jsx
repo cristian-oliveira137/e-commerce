@@ -80,7 +80,7 @@ const ProductDetails = () => {
                   </Grid>
 
                   <Grid item>
-                    <span className="details-price">R${productDetails.price}</span>
+                    <span className="product-price">${productDetails.price}</span>
                   </Grid>
                   <Grid item >
                     <span className="details-description"> {productDetails.description}</span>

@@ -1,21 +1,23 @@
 import Grid from "@mui/material/Grid";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Card } from "@mui/material";
+import { Card } from "@mui/material";
 
 const ProductList = (props) =>  (
   props.productList?.map((productItem, index) => (
       <Grid key={index} item xs={6} sm={4} md={3} lg={2}>
-        <Card className="card-product">
+        <Card className="card-container card-product">
           <Grid
             container
             alignItems="center"
             direction="column"
             justifyContent="center"
             wrap="wrap"
+            className="card-container"
+            rowSpacing={2}
           >
-            <Grid item xs={6}>
-              <div>
+            <Grid item>
+              <div className='product-image'>
                 <img
                   src={productItem.image}
                   alt={productItem.title}
@@ -25,16 +27,14 @@ const ProductList = (props) =>  (
               </div>
             </Grid>
 
-            <Grid item xs={4}>
-              <Link to={`/detalhes/${productItem.id}`}>
-                <Button variant="text">
+            <Grid item>
+              <Link  className="product-title" to={`/detalhes/${productItem.id}`}>
                   <span> {productItem.title}</span>
-                </Button>
               </Link>
             </Grid>
 
-            <Grid item xs={2}>
-              <span>${productItem.price}</span>
+            <Grid item>
+              <span className="product-price">${productItem.price}</span>
             </Grid>
           </Grid>
         </Card >
